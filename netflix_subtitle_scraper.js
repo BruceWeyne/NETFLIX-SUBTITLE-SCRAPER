@@ -35,7 +35,7 @@ var setting = {
 var ancestor = document.querySelector('.player-timedtext');
 var previous = '';
 var subtitle = '';
-var endChars = ['.', '"', '!', '?', ']'];
+var endChars = ['.', '"', '!', '?', ']', '♪'];
 
 var config = {
     childList: true,               // Detect changes of children nodes, including text nodes
