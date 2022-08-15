@@ -22,7 +22,7 @@
 
 var setting = {
     sentenceSeparate: true, // Separate each sentence by blank line
-    effectsHide: false, // Hide effect subtitles such as "[Raining sound]"
+    effectsHide: true, // Hide effect subtitles such as "[Raining sound]"
     playingDebug: true, // Show subtitles to output on the debug console of a browser
     clearConsole: true, // Clear debug console when start scraping
 }
