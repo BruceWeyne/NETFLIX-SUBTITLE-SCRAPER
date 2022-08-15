@@ -1,5 +1,5 @@
 # NETFLIX SUBTITLE SCRAPER
-Scrape NETFLIX movies' subtitles as playing.
+Scrape NETFLIX movies' subtitles as playing. For language learning.
 
 # USAGE
 + Copy all of these codes and paste them into the console of a browser.
