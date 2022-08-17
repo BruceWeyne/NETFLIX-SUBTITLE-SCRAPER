@@ -76,11 +76,7 @@ var mo = new MutationObserver(function(record, observer) {
         subtitle += output;
 
         if (endChars.includes(output.slice(-1))) { // When ends with finishing symbols
-            if (setting.sentenceSeparate) {
-                subtitle += '\n\n';
-            } else {
-                subtitle += '\n';
-            }
+            subtitle += setting.sentenceSeparate ? '\n\n' : '\n';
         } else { // When still on going
             subtitle += ' ';
         }
