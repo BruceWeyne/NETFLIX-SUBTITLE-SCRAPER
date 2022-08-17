@@ -36,6 +36,7 @@ var ancestor = document.querySelector('.player-timedtext');
 var previous = '';
 var subtitle = '';
 var endChars = ['.', '"', '!', '?', ']', '♪'];
+var effectChars = ['[', '-[', ']', '(', ')'];
 
 var config = {
     childList: true,               // Detect changes of children nodes, including text nodes
@@ -57,8 +58,8 @@ var mo = new MutationObserver(function(record, observer) {
 
         for (var span of spans) {
             var stuff = span.innerText.replace(/\r?\n/g, ''); // Only use for verifying
-            if (setting.effectsHide && stuff.startsWith('[') && stuff.endsWith(']')) continue; // Remove effect subtitles
-            if (setting.effectsHide && stuff.startsWith('-[') && stuff.endsWith(']')) continue; // Remove effect subtitles
+            if (setting.effectsHide && effectChars.includes(stuff.slice(0,1)) && effectChars.includes(stuff.slice(-1))) continue; // Remove effect subtitles
+            if (setting.effectsHide && effectChars.includes(stuff.slice(0,2)) && effectChars.includes(stuff.slice(-1))) continue; // Remove effect subtitles
             if (parts !== '' && endChars.includes(parts.slice(-1))) parts += '\n'; // When ends with finishing symbols
             parts += span.innerText.replace(/\r?\n/g, ' '); // Text value of child node span of span, replacing LF code with space
         }
@@ -68,8 +69,8 @@ var mo = new MutationObserver(function(record, observer) {
 
         output += parts;
     }
-    if (setting.effectsHide && output.startsWith('[') && output.endsWith(']')) output = ''; // Remove effect subtitles
-    if (setting.effectsHide && output.startsWith('-[') && output.endsWith(']')) output = ''; // Remove effect subtitles
+    if (setting.effectsHide && effectChars.includes(output.slice(0,1)) && effectChars.includes(output.slice(-1))) continue; // Remove effect subtitles
+    if (setting.effectsHide && effectChars.includes(output.slice(0,2)) && effectChars.includes(output.slice(-1))) continue; // Remove effect subtitles
     if (previous !== output && output !== '') { // Filter to keep output not duplicated
         if (setting.playingDebug) console.log(output);
         subtitle += output;
