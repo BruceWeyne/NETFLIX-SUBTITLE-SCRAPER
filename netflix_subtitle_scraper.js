@@ -69,8 +69,8 @@ var mo = new MutationObserver(function(record, observer) {
 
         output += parts;
     }
-    if (setting.effectsHide && effectChars.includes(output.slice(0,1)) && effectChars.includes(output.slice(-1))) continue; // Remove effect subtitles
-    if (setting.effectsHide && effectChars.includes(output.slice(0,2)) && effectChars.includes(output.slice(-1))) continue; // Remove effect subtitles
+    if (setting.effectsHide && effectChars.includes(output.slice(0,1)) && effectChars.includes(output.slice(-1))) output = ''; // Remove effect subtitles
+    if (setting.effectsHide && effectChars.includes(output.slice(0,2)) && effectChars.includes(output.slice(-1))) output = ''; // Remove effect subtitles
     if (previous !== output && output !== '') { // Filter to keep output not duplicated
         if (setting.playingDebug) console.log(output);
         subtitle += output;
