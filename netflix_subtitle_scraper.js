@@ -88,4 +88,6 @@ mo.observe(ancestor, config); // Excecute Observation
 
 if (setting.clearConsole) clear(); // Clear console
 
+console.log('[ Start Scraping... ]');
+
 // mo.disconnect(); // Call this to stop observation
