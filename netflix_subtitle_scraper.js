@@ -27,6 +27,10 @@ var setting = {
     clearConsole: true, // Clear debug console when start scraping
 }
 
+var language = {
+    japanese: false
+}
+
 
 /********************************************************
 * DO NOT edit the following scritp
@@ -35,8 +39,8 @@ var setting = {
 var ancestor = document.querySelector('.player-timedtext');
 var previous = '';
 var subtitle = '';
-var endChars = ['.', '"', '!', '?', ']', '♪'];
-var effectChars = ['[', '-[', ']', '(', ')'];
+var endChars = ['.', '"', '!', '?', ']', '♪', '。'];
+var effectChars = ['[', '-[', ']', '(', ')', '♪～'];
 
 var config = {
     childList: true,               // Detect changes of children nodes, including text nodes
@@ -76,6 +80,8 @@ var mo = new MutationObserver(function(record, observer) {
         subtitle += output;
 
         if (endChars.includes(output.slice(-1))) { // When ends with finishing symbols
+            subtitle += setting.sentenceSeparate ? '\n\n' : '\n';
+        } else if (language.japanese) {
             subtitle += setting.sentenceSeparate ? '\n\n' : '\n';
         } else { // When still on going
             subtitle += ' ';
