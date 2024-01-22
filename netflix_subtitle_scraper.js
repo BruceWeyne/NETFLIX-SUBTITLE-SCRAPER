@@ -28,7 +28,7 @@ var setting = {
 }
 
 var language = {
-    japanese: false
+    japanese: false // Separate each displayed sentence by line break
 }
 
 
