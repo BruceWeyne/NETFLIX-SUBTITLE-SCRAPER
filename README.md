@@ -19,7 +19,7 @@ You can change the setting with editing the "setting" object variable in the Jav
 |clearConsole|Clear debug console when start scraping|
 
 # LANGUAGE
-A previous logic was not suited for Japanese language subtitle.
+A previous logic was not suited for Japanese language subtitle.  
 This time logic has fixed for it, and set "true" to the language key as below.
 
 |key|explanation|
