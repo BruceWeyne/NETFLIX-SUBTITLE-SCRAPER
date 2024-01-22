@@ -27,5 +27,5 @@ This time logic has fixed for it, and set "true" to the language key as below.
 |japanese|When this key is set as true, subtitles will be separated by each displayed sentence|
 
 # Sample for use
-
+https://user-images.githubusercontent.com/47801526/184587501-11ae39cd-41ba-4fab-a2ad-66ae243cefa2.mov
 
