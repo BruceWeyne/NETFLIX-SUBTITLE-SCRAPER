@@ -21,16 +21,12 @@
 *******************************************************/
 
 var setting = {
-    sentenceSeparate: true, // Separate each sentence by blank line
-    effectsHide: true, // Hide effect subtitles such as "[Raining sound]"
-    playingDebug: true, // Show subtitles to output on the debug console of a browser
-    clearConsole: true, // Clear debug console when start scraping
+    endWithPunctuation: true, // If false, separate each displayed sentence by line break
+    sentenceSeparate: true,   // Separate each sentence by blank line
+    effectsHide: true,        // Hide effect subtitles such as "[Raining sound]"
+    playingDebug: true,       // Show subtitles to output on the debug console of a browser
+    clearConsole: true,       // Clear debug console when start scraping
 }
-
-var language = {
-    japanese: false // Separate each displayed sentence by line break
-}
-
 
 /********************************************************
 * DO NOT edit the following scritp
@@ -64,7 +60,7 @@ var mo = new MutationObserver(function(record, observer) {
             var stuff = span.innerText.replace(/\r?\n/g, ''); // Only use for verifying
             if (setting.effectsHide && effectChars.includes(stuff.slice(0,1)) && effectChars.includes(stuff.slice(-1))) continue; // Remove effect subtitles
             if (setting.effectsHide && effectChars.includes(stuff.slice(0,2)) && effectChars.includes(stuff.slice(-1))) continue; // Remove effect subtitles
-            if (parts !== '' && endChars.includes(parts.slice(-1))) parts += '\n'; // When ends with finishing symbols
+            if (parts !== '' && endChars.includes(parts.slice(-1))) parts += '\n'; // When ends with punctuation mark
             parts += span.innerText.replace(/\r?\n/g, ' '); // Text value of child node span of span, replacing LF code with space
         }
 
@@ -79,9 +75,9 @@ var mo = new MutationObserver(function(record, observer) {
         if (setting.playingDebug) console.log(output);
         subtitle += output;
 
-        if (endChars.includes(output.slice(-1))) { // When ends with finishing symbols
+        if (endChars.includes(output.slice(-1))) { // When ends with punctuation mark
             subtitle += setting.sentenceSeparate ? '\n\n' : '\n';
-        } else if (language.japanese) {
+        } else if (! setting.endWithPunctuation) { // When punctuation marks do not exist in a selected language
             subtitle += setting.sentenceSeparate ? '\n\n' : '\n';
         } else { // When still on going
             subtitle += ' ';
