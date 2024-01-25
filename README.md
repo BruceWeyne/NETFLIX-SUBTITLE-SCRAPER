@@ -13,19 +13,11 @@ You can change the setting with editing the "setting" object variable in the Jav
 
 |key|explanation|
 |-|-|
-|endWithPunctuation|When this key is set as false, subtitles will be separated by each displayed sentence  Punctuation does not exist on some language subtitles such as Japanese, Chinese, Korean, Thai and etc.|
+|endWithPunctuation|When this key is set as false, subtitles will be separated by each displayed sentence. Punctuation does not exist on some language subtitles such as Japanese, Chinese, Korean, Thai and etc.|
 |sentenceSeparate|Separate each sentence by blank line|
 |effectsHide|Hide effect subtitles such as "[Raining sound]"|
 |playingDebug|Show subtitles to output on the debug console of a browser|
 |clearConsole|Clear debug console when start scraping|
-
-# LANGUAGE
-A previous logic was not suited for Japanese language subtitle.  
-This time logic has fixed for it, and set "true" to the language key as below.
-
-|key|explanation|
-|-|-|
-|japanese|When this key is set as true, subtitles will be separated by each displayed sentence|
 
 # Sample for use
 https://user-images.githubusercontent.com/47801526/184587501-11ae39cd-41ba-4fab-a2ad-66ae243cefa2.mov
