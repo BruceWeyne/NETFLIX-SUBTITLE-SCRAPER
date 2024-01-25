@@ -9,7 +9,8 @@ Scrape NETFLIX movies' subtitles as playing. For language learning.
 1. Finally, you are free to paste anywhere you want like Evernote or anything.
 
 # SETTING
-You can change the setting with editing the "setting" object variable in the Javascritp file.
+You can change the setting with editing the "setting" object variable in the Javascritp file.<br>
+If you choose some language subtitles like Japanese, it is recommended to set the key "endWithPunctuation" as false because those language subtitles does not use punctuation marks.
 
 |key|explanation|
 |-|-|
